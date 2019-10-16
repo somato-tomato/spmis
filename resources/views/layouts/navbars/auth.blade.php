@@ -17,9 +17,9 @@
                     <p>{{ __('Dashboard') }}</p>
                 </a>
             </li>
-            <li class="{{ $elementActive == 'fakultas' || $elementActive == 'akademik' || $elementActive == 'lembaga' ? 'active' : '' }}">
+            <li class="{{ $elementActive == 'siklus' || $elementActive == 'prodi' || $elementActive == 'fakultas' || $elementActive == 'akademik' || $elementActive == 'lembaga' ? 'active' : '' }}">
                 <a data-toggle="collapse" aria-expanded="true" href="#master">
-                    <i class="nc-icon"><img src="{{ asset('paper/img/laravel.svg') }}"></i>
+                    <i class="nc-hat-3"></i>
                     <p>
                             {{ __('Lembagas') }}
                         <b class="caret"></b>
@@ -29,20 +29,32 @@
                     <ul class="nav">
                         <li class="{{ $elementActive == 'lembaga' ? 'active' : '' }}">
                             <a href="{{ route('lembaga.index') }}">
-                                <span class="sidebar-mini-icon">{{ __('UP') }}</span>
+                                <span class="sidebar-mini-icon">{{ __('L') }}</span>
                                 <span class="sidebar-normal">{{ __(' Lembaga ') }}</span>
                             </a>
                         </li>
                         <li class="{{ $elementActive == 'akademik' ? 'active' : '' }}">
                             <a href="{{ route('akademik.index') }}">
-                                <span class="sidebar-mini-icon">{{ __('U') }}</span>
+                                <span class="sidebar-mini-icon">{{ __('A') }}</span>
                                 <span class="sidebar-normal">{{ __(' Akademik ') }}</span>
                             </a>
                         </li>
                         <li class="{{ $elementActive == 'fakultas' ? 'active' : '' }}">
                             <a href="{{ route('fakultas.index') }}">
-                                <span class="sidebar-mini-icon">{{ __('U') }}</span>
+                                <span class="sidebar-mini-icon">{{ __('F') }}</span>
                                 <span class="sidebar-normal">{{ __(' Fakultas ') }}</span>
+                            </a>
+                        </li>
+                        <li class="{{ $elementActive == 'prodi' ? 'active' : '' }}">
+                            <a href="{{ route('prodi.index') }}">
+                                <span class="sidebar-mini-icon">{{ __('P') }}</span>
+                                <span class="sidebar-normal">{{ __(' Prodi ') }}</span>
+                            </a>
+                        </li>
+                        <li class="{{ $elementActive == 'siklus' ? 'active' : '' }}">
+                            <a href="{{ route('siklus.index') }}">
+                                <span class="sidebar-mini-icon">{{ __('S') }}</span>
+                                <span class="sidebar-normal">{{ __(' Siklus ') }}</span>
                             </a>
                         </li>
                     </ul>

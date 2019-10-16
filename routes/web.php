@@ -31,6 +31,8 @@ Route::resource('fakultas','FakultasController');
 Route::get('prodi/{id}/buat', 'ProdiController@buat');
 Route::resource('prodi','ProdiController');
 
+Route::resource('siklus','SiklusController');
+
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);

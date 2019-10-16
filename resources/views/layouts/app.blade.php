@@ -41,6 +41,12 @@ The above copyright notice and this permission notice shall be included in all c
 
     <meta itemprop="image" content="https://s3.amazonaws.com/creativetim_bucket/products/209/opt_pd_laravel_thumbnail.jpg">
 
+    <!-- Date Picker -->
+{{--    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">--}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
 
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="product">
@@ -60,7 +66,7 @@ The above copyright notice and this permission notice shall be included in all c
     <meta property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/209/opt_pd_laravel_thumbnail.jpg"/>
     <meta property="og:description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up." />
     <meta property="og:site_name" content="Creative Tim" />
-    
+
     <title>
         {{ __('Paper Dashboard by Creative Tim') }}
     </title>
@@ -89,12 +95,12 @@ The above copyright notice and this permission notice shall be included in all c
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     @auth()
         @include('layouts.page_templates.auth')
         @include('layouts.navbars.fixed-plugin')
     @endauth
-    
+
     @guest
         @include('layouts.page_templates.guest')
     @endguest
@@ -116,7 +122,8 @@ The above copyright notice and this permission notice shall be included in all c
     <script src="{{ asset('paper') }}/demo/demo.js"></script>
     <!-- Sharrre libray -->
     <script src="../assets/demo/jquery.sharrre.js"></script>
-    
+
+
     @stack('scripts')
 
     @include('layouts.navbars.fixed-plugin-js')

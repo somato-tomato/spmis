@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Akademik;
-use App\Tahun;
+use App\Siklus;
 use Illuminate\Http\Request;
 
-class AkademikController extends Controller
+class SiklusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,9 @@ class AkademikController extends Controller
      */
     public function index()
     {
-        $data = Akademik::latest()->paginate(5);
+        $data = Siklus::latest()->paginate(5);
 
-        return view('akademik.index',compact('data'));
+        return view('siklus.index',compact('data'));
     }
 
     /**
@@ -27,9 +26,7 @@ class AkademikController extends Controller
      */
     public function create()
     {
-        $tahuns = Tahun::all();
-
-        return view('akademik.create', compact('tahuns'));
+        return view('siklus.create');
     }
 
     /**
@@ -41,18 +38,22 @@ class AkademikController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'namaAkademik'  =>  'required',
-            'tahunJalan'    =>  'required',
-            'semesterJalan' =>  'required'
+            'nomor'  =>  'required',
+            'nama'    =>  'required',
+            'tahun' =>  'required',
+            'sk' =>  'required',
+            'tanggal' =>  'required'
         ]);
 
         $form_data = array(
-            'namaAkademik'  =>   $request->namaAkademik,
-            'tahunJalan'    =>   $request->tahunJalan,
-            'semesterJalan' =>   $request->semesterJalan
+            'nomor'  =>   $request->nomor,
+            'nama'    =>   $request->nama,
+            'tahun' =>   $request->tahun,
+            'sk' =>   $request->sk,
+            'tanggal' =>   $request->tanggal
         );
 
-        Akademik::create($form_data);
+        Siklus::create($form_data);
 
         return redirect('akademik')->with('success', 'Data Added successfully.');
     }
@@ -76,8 +77,8 @@ class AkademikController extends Controller
      */
     public function edit($id)
     {
-        $data = Akademik::findOrFail($id);
-        return view('akademik.edit', compact('data'));
+        $data = Siklus::findOrFail($id);
+        return view('siklus.edit', compact('data'));
     }
 
     /**
@@ -90,18 +91,22 @@ class AkademikController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'namaAkademik'  =>  'required',
-            'tahunJalan'    =>  'required',
-            'semesterJalan' =>  'required'
+            'nomor'  =>  'required',
+            'nama'    =>  'required',
+            'tahun' =>  'required',
+            'sk' =>  'required',
+            'tanggal' =>  'required'
         ]);
 
         $form_data = array(
-            'namaAkademik'  =>   $request->namaAkademik,
-            'tahunJalan'    =>   $request->tahunJalan,
-            'semesterJalan' =>   $request->semesterJalan
+            'nomor'  =>   $request->nomor,
+            'nama'    =>   $request->nama,
+            'tahun' =>   $request->tahun,
+            'sk' =>   $request->sk,
+            'tanggal' =>   $request->tanggal
         );
 
-        Akademik::whereId($id)->update($form_data);
+        Siklus::whereId($id)->update($form_data);
 
         return redirect('akademik')->with('success', 'Data is successfully updated');
     }
