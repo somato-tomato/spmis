@@ -38,7 +38,7 @@
                                         <td>{{ $prodis->namaFakultas }}</td>
                                         <td>
                                             @csrf
-                                            <a href="{{ route('prodi.create') }}" class="btn btn-primary">Ubah Data</a>
+                                            <a href="{{ url('/prodi/' . $prodis->id . '/buat') }}" class="btn btn-primary">Ubah Data</a>
                                         </td>
                                     </tr>
                                 @empty

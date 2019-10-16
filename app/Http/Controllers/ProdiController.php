@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\DB;
 
 class ProdiController extends Controller
 {
+
+    public function buat($id)
+    {
+        $data = Fakultas::findOrfail($id);
+        return view('prodi.create', compact('data'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,9 +35,9 @@ class ProdiController extends Controller
      */
     public function create($id)
     {
-        $data = Fakultas::findOrfail($id);
-
-        return view('prodi.create', compact('data'));
+//        $data = Fakultas::findOrfail($id);
+//
+//        return view('prodi.create', compact('data'));
     }
 
     /**
@@ -39,17 +46,18 @@ class ProdiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
         $request->validate([
             'namaProdi'    =>  'required',
-            'kodeProdi'  =>  'required'
+            'kodeProdi'  =>  'required',
+            'idFakultas'  =>  'required'
         ]);
 
         $form_data = array(
-            'namaProdi'    =>   $request->namaLembaga,
-            'kodeProdi'  =>   $request->alamatLembaga,
-            'idFakultas'  =>   $data
+            'namaProdi'    =>   $request->namaProdi,
+            'kodeProdi'  =>   $request->kodeProdi,
+            'idFakultas'  =>   $request->idFakultas
         );
 
         Prodi::create($form_data);
