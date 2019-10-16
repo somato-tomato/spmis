@@ -33,11 +33,9 @@ class ProdiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-//        $data = Fakultas::findOrfail($id);
-//
-//        return view('prodi.create', compact('data'));
+        //
     }
 
     /**

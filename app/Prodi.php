@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Prodi extends Model
 {
     protected $fillable = [
-        'nama_prodi', 'kode_prodi', 'idFakultas'
+        'namaProdi', 'kodeProdi', 'idFakultas'
     ];
 
     public function Fakultas(){
