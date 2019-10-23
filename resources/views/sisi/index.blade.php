@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'class' => '',
-    'elementActive' => 'prodi'
+    'elementActive' => 'sisi'
 ])
 
 @section('content')
@@ -21,11 +21,31 @@
                             @endif
                         </div>
 
-                        <select>
-                        @foreach ($data as $siklus)
-                          <option>{{ $siklus->nama }}</option>
-                        @endforeach
-                        </select>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">{{ __('Nama Siklus') }}</th>
+                                    <th scope="col"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @forelse ($data as $isis)
+                                    <tr>
+                                        <td>{{ $isis->nama }}</td>
+                                        <td>
+                                            @csrf
+                                            <a href="{{ url('/sisi/' . $isis->id . '/daftarisi  ') }}" class="btn btn-primary">Lihat Daftar</a>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td class="text-center" colspan="6">Tidak ada data</td>
+                                    </tr>
+                                @endforelse
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

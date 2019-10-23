@@ -11,6 +11,6 @@ class  Siklus extends Model
     ];
 
     public function Isi(){
-        return $this->hasMany('App\Isi');
+        return $this->hasMany('App\Isi', 'id', 'idSiklus');
     }
 }

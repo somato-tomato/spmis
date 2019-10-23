@@ -60,6 +60,31 @@
                     </ul>
                 </div>
             </li>
+            <li class="{{  $elementActive == 'akademik' || $elementActive == 'sisi' ? 'active' : '' }}">
+                <a data-toggle="collapse" aria-expanded="true" href="#masterdokumen">
+                    <i class="nc-hat-3"></i>
+                    <p>
+                        {{ __('Data Dokumen') }}
+                        <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse show" id="masterdokumen">
+                    <ul class="nav">
+                        <li class="{{ $elementActive == 'sisi' ? 'active' : '' }}">
+                            <a href="{{ route('sisi.index') }}">
+                                <span class="sidebar-mini-icon">{{ __('S') }}</span>
+                                <span class="sidebar-normal">{{ __(' Sisi ') }}</span>
+                            </a>
+                        </li>
+                        <li class="{{ $elementActive == 'akademik' ? 'active' : '' }}">
+                            <a href="{{ route('akademik.index') }}">
+                                <span class="sidebar-mini-icon">{{ __('A') }}</span>
+                                <span class="sidebar-normal">{{ __(' Akademik ') }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="{{ $elementActive == 'icons' ? 'active' : '' }}">
                 <a href="{{ route('page.index', 'icons') }}">
                     <i class="nc-icon nc-diamond"></i>
@@ -88,12 +113,6 @@
                 <a href="{{ route('page.index', 'typography') }}">
                     <i class="nc-icon nc-caps-small"></i>
                     <p>{{ __('Typography') }}</p>
-                </a>
-            </li>
-            <li class="active-pro {{ $elementActive == 'upgrade' ? 'active' : '' }}">
-                <a href="{{ route('page.index', 'upgrade') }}">
-                    <i class="nc-icon nc-spaceship"></i>
-                    <p>{{ __('Upgrade to PRO') }}</p>
                 </a>
             </li>
         </ul>
