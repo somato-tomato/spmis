@@ -38,6 +38,9 @@ Route::get('sisi/isi/{id}', 'IsiController@viewisi');
 Route::get('sisi/{id}/buat', 'IsiController@buat');
 Route::resource('sisi','IsiController');
 
+Route::get('nilai/{id}/tambahnilai', 'PenilaianController@tambahnilai');
+Route::resource('nilai','PenilaianController');
+
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);

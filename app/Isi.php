@@ -13,4 +13,8 @@ class Isi extends Model
     public function Siklus(){
         return $this->belongsTo('App\Siklus', 'idSiklus', 'id');
     }
+
+    public function Penilaian(){
+        return $this->hasMany('App\Penilaian');
+    }
 }

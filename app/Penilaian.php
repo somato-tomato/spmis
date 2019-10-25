@@ -9,4 +9,8 @@ class Penilaian extends Model
     protected $fillable = [
         'angka', 'keterangan'
     ];
+
+    public function Isi(){
+        return $this->belongsTo('App\Isi');
+    }
 }

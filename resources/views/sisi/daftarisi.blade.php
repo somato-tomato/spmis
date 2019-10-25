@@ -38,6 +38,7 @@
                                         <td>
                                             @csrf
                                             <a href="{{ url('/sisi/isi/' . $sisi->id ) }}" class="btn btn-primary">Lihat Data</a>
+                                            <a href="{{ url('/nilai/' . $sisi->id . '/tambahnilai' ) }}" class="btn btn-primary">Lihat Data</a>
                                         </td>
                                     </tr>
                                 @empty

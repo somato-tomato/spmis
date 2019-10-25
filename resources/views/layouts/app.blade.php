@@ -24,6 +24,7 @@ The above copyright notice and this permission notice shall be included in all c
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('paper') }}/img/apple-icon.png">
     <link rel="icon" type="image/png" href="{{ asset('paper') }}/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Extra details for Live View on GitHub Pages -->
     <!-- Canonical SEO -->

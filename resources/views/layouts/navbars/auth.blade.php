@@ -76,12 +76,6 @@
                                 <span class="sidebar-normal">{{ __(' Sisi ') }}</span>
                             </a>
                         </li>
-                        <li class="{{ $elementActive == 'akademik' ? 'active' : '' }}">
-                            <a href="{{ route('akademik.index') }}">
-                                <span class="sidebar-mini-icon">{{ __('A') }}</span>
-                                <span class="sidebar-normal">{{ __(' Akademik ') }}</span>
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </li>
