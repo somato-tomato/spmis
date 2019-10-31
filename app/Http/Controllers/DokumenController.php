@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Fakultas;
-use App\Lembaga;
-use App\Prodi;
+use App\Dokumen;
 use Illuminate\Http\Request;
 
-class LembagaController extends Controller
+class DokumenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,9 @@ class LembagaController extends Controller
      */
     public function index()
     {
-        $data = Lembaga::latest()->paginate(5);
+        $data = Dokumen::latest()->paginate(5);
 
-        return view('lembaga.index',compact('data'));
+        return view('doc.index',compact('data'));
     }
 
     /**
@@ -28,7 +26,7 @@ class LembagaController extends Controller
      */
     public function create()
     {
-        return view('lembaga.create');
+        return view('doc.create');
     }
 
     /**
@@ -39,7 +37,17 @@ class LembagaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'namaDokumen'  =>  'required'
+        ]);
+
+        $form_data = array(
+            'namaDokumen'  =>   $request->namaDokumen
+        );
+
+        Dokumen::create($form_data);
+
+        return redirect('doc')->with('success', 'Data Added successfully.');
     }
 
     /**
@@ -61,8 +69,8 @@ class LembagaController extends Controller
      */
     public function edit($id)
     {
-        $data = Lembaga::findOrFail($id);
-        return view('lembaga.edit', compact('data'));
+        $data = Dokumen::findOrFail($id);
+        return view('doc.edit', compact('data'));
     }
 
     /**
@@ -75,22 +83,16 @@ class LembagaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'namaLembaga'    =>  'required',
-            'alamatLembaga'  =>  'required',
-            'kotkabLembaga'  =>  'required',
-            'notelpLembaga'  =>  'required'
+            'namaDokumen'  =>  'required'
         ]);
 
         $form_data = array(
-            'namaLembaga'    =>   $request->namaLembaga,
-            'alamatLembaga'  =>   $request->alamatLembaga,
-            'kotkabLembaga'  =>   $request->kotkabLembaga,
-            'notelpLembaga'    =>   $request->notelpLembaga
+            'namaDokumen'  =>   $request->namaDokumen
         );
 
-        Lembaga::whereId($id)->update($form_data);
+        Dokumen::whereId($id)->update($form_data);
 
-        return redirect('lembaga')->with('success', 'Data is successfully updated');
+        return redirect('doc')->with('success', 'Data is successfully updated');
     }
 
     /**

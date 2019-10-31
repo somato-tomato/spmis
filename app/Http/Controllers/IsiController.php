@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Isi;
+use App\Penilaian;
 use App\Siklus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use function Symfony\Component\HttpKernel\Tests\controller_func;
 
 
 class IsiController extends Controller
@@ -42,6 +44,17 @@ class IsiController extends Controller
         return view('sisi.isi', compact('find'));
     }
 
+    public function viewnilai($id)
+    {
+        $find = DB::table('penilaians')
+            ->join('isis', 'penilaians.idIsi', '=', 'isis.id')
+            ->select('penilaians.angka', 'penilaians.keterangan')
+            ->where('isis.id', '=', $id)
+            ->get();
+
+        return view('nilai.view', compact('find'));
+    }
+
     public function buat($id)
     {
         $data = Siklus::findOrfail($id);
@@ -59,7 +72,6 @@ class IsiController extends Controller
     public function index()
     {
         $data = Siklus::latest()->paginate(5);
-
         return view('sisi.index',compact('data'));
     }
 

@@ -36,10 +36,16 @@ Route::resource('siklus','SiklusController');
 Route::get('sisi/{id}/daftarisi', 'IsiController@daftarisi');
 Route::get('sisi/isi/{id}', 'IsiController@viewisi');
 Route::get('sisi/{id}/buat', 'IsiController@buat');
+Route::get('nilai/view/{id}', 'IsiController@viewnilai');
 Route::resource('sisi','IsiController');
 
 Route::get('nilai/{id}/tambahnilai', 'PenilaianController@tambahnilai');
 Route::resource('nilai','PenilaianController');
+
+Route::resource('doc','DokumenController');
+
+Route::get("addMore","ProductAddMoreController@addMore");
+Route::post("addMore","ProductAddMoreController@addMorePost")->name('addmorePost');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'UserController', ['except' => ['show']]);

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Penilaian extends Model
 {
     protected $fillable = [
-        'angka', 'keterangan'
+        'idIsi', 'angka', 'keterangan'
     ];
 
     public function Isi(){

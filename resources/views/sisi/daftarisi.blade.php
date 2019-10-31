@@ -37,8 +37,9 @@
                                         <td>{{ $sisi->keterangan }}</td>
                                         <td>
                                             @csrf
-                                            <a href="{{ url('/sisi/isi/' . $sisi->id ) }}" class="btn btn-primary">Lihat Data</a>
-                                            <a href="{{ url('/nilai/' . $sisi->id . '/tambahnilai' ) }}" class="btn btn-primary">Lihat Data</a>
+                                            <a href="{{ url('/sisi/isi/' . $sisi->id ) }}" class="btn btn-primary">Lihat Standard</a>
+                                            <a href="{{ url('/nilai/' . $sisi->id . '/tambahnilai' ) }}" class="btn btn-primary">Tambah Nilai</a>
+                                            <a href="{{ url('/nilai/view/' . $sisi->id) }}" class="btn btn-primary">Lihat Nilai</a>
                                         </td>
                                     </tr>
                                 @empty

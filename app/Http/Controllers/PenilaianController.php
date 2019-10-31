@@ -17,34 +17,10 @@ class PenilaianController extends Controller
         return view('nilai.create',compact('find'));
     }
 
-    public function simpan(Request $request)
-    {
-        $rules =[];
-
-        $form_data = array(
-            'idIsi'    =>   $request->idIsi,
-            'angka'    =>   $request->angka,
-            'keterangan'  =>   $request->keterangan
-        );
-
-        foreach ($form_data as $key=>$value){
-            $rules ["idIsi.{$key->idIsi}"]='required';
-            $rules ["angka.{$key->angka}"]='required';
-            $rules ["keterangan.{$key->keterangan}"]='required';
-        }
-        $validator=Validator::make($request->all(), $rules);
-        if ($validator->passes()){
-            foreach($request->input($form_data) as $key => $value){
-                Penilaian::create($value);
-            }
-
-            return view('sisi');
-        }
-    }
-
     public function index()
     {
-        //
+        $data = Penilaian::all();
+        return view('nilai.view',compact('data'));
     }
 
     /**
@@ -65,7 +41,19 @@ class PenilaianController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'addmore.*.idIsi' => 'required',
+            'addmore.*.keterangan' => 'required',
+            'addmore.*.angka' => 'required',
+        ]);
 
+        ///ddd($request);
+
+        foreach ($request->addmore as $key => $value) {
+            Penilaian::create($value);
+        }
+
+        return redirect()->route('sisi');
     }
 
 
@@ -77,7 +65,9 @@ class PenilaianController extends Controller
      */
     public function show($id)
     {
-        //
+        $find = Penilaian::findOrfail($id);
+
+        return view('nilai.view', compact('find'));
     }
 
     /**

@@ -1,16 +1,16 @@
 @extends('layouts.app', [
     'class' => '',
-    'elementActive' => 'lembaga'
+    'elementActive' => 'akademik'
 ])
 
 @section('content')
-    <br><br><br>
+    <br><br><br><br>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Edit Data Produk</h3>
+                        <h3 class="card-title">Edit Data Akademik</h3>
                     </div>
                     <div class="card-body">
                         @if (session('error'))
