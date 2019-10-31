@@ -69,7 +69,7 @@ The above copyright notice and this permission notice shall be included in all c
     <meta property="og:site_name" content="Creative Tim" />
 
     <title>
-        {{ __('Paper Dashboard by Creative Tim') }}
+        {{ __('SPMI') }}
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
         name='viewport' />

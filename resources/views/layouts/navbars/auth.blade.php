@@ -73,7 +73,7 @@
                         <li class="{{ $elementActive == 'sisi' ? 'active' : '' }}">
                             <a href="{{ route('sisi.index') }}">
                                 <span class="sidebar-mini-icon">{{ __('S') }}</span>
-                                <span class="sidebar-normal">{{ __(' Sisi ') }}</span>
+                                <span class="sidebar-normal">{{ __(' Isi ') }}</span>
                             </a>
                         </li>
                         <li class="{{ $elementActive == 'doc' ? 'active' : '' }}">

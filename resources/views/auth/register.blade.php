@@ -1,6 +1,5 @@
 @extends('layouts.app', [
     'class' => 'register-page',
-    'backgroundImagePath' => 'img/bg/jan-sendereks.jpg'
 ])
 
 @section('content')
@@ -136,7 +135,7 @@
                 </div>
              </div>
         </div>
-     </div> 
+     </div>
 @endsection
 
 @push('scripts')
